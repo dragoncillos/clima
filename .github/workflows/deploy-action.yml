@@ -1,0 +1,34 @@
+# v1.0: 18/12/2023
+# Source: dragoncillos.com
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy@v4
+        with:
+          github-token: ${{ secrets.ACTIONS_TOKEN }}
+          branch: gh-pages
+          destination: dist
