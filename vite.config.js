@@ -1,24 +1,25 @@
-import { defineConfig } from "vite";
-import path from "node:path";
-
-const isGitHubPages = true;
-const folderName = path.basename(process.cwd()) + "/";
-const mode = process.env.NODE_ENV === "production" ? "production" : "development";
-const base = mode === "production" && isGitHubPages ? "/" + folderName : "/";
+// v2.0: 27/05/2024
+// Source: dragoncillos.com
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
-  root: "src",
-  base,
-  mode,
-  envDir: "../",
-  publicDir: "../public",
-  resolve: {
-    alias: {
-      "@": new URL("./src", import.meta.url).pathname
-    }
+  css: {
+    transformer: 'lightningcss',
+    lightningcss: {
+      drafts: {
+        customMedia: true
+      }
+    },
   },
   build: {
-    outDir: "../dist",
-    assetsDir: "./"
-  }
-});
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        //en: resolve(__dirname, 'en/index.html'),
+        //curriculum: resolve(__dirname, 'curriculum/marcos-de-miguel.html'),
+        //curriculumEn: resolve(__dirname, 'curriculum/marcos-de-miguel-en.html'),
+      },
+    },
+  },
+})
