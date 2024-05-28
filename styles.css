@@ -7,9 +7,10 @@
 ---------------------------------------------------------------------------------
 */
 
-@layer base, form, result;
+@layer base, utilities, form, result;
 
 @import url("./stylesheets/base.css") layer(base);
+@import url("./stylesheets/utilities.css") layer(utilities);
 @import url("./stylesheets/form.css") layer(form);
 @import url("./stylesheets/result.css") layer(result);
 

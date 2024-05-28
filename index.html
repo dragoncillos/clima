@@ -10,21 +10,22 @@
 </head>
 
 <body>
-  <section class="top-banner">
+  <header class="top-banner">
     <div class="container">
       <h1 class="heading">Clima de hoy</h1>
       <form>
-        <input type="text" placeholder="Buscar una ciudad" autofocus>
+        <label for="city" class="hiddenTxt">Buscar una ciudad</label>
+        <input type="text" id="city" placeholder="Buscar una ciudad">
         <button type="submit">Enviar</button>
         <span class="msg"></span>
       </form>
     </div>
-  </section>
-  <section class="ajax-section">
+  </header>
+  <main class="ajax-section">
     <div class="container">
       <ul class="cities"></ul>
     </div>
-  </section>
+  </main>
 </body>
 
 </html>

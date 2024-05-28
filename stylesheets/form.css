@@ -30,9 +30,10 @@
   margin-left: 15px;
   border-radius: 5px;
   background: var(--button);
-  transition: background 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
-.top-banner form button:hover {
+.top-banner form button:is(:hover, :focus) {
+  outline: 1px solid white;
   background: var(--darkred);
 }
 .top-banner form .msg {
